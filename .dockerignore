@@ -1,0 +1,15 @@
+node_modules
+.git
+.wrangler
+.cache
+dist
+docs
+AGENTS.md
+wrangler.staging.jsonc
+test
+playwright-report
+test-results
+.dev.vars*
+*.pem
+*.key
+.env*

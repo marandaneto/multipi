@@ -1,0 +1,41 @@
+{
+  "name": "multipi-browser-tests",
+  "main": "worker.ts",
+  "compatibility_date": "2026-10-28",
+  "compatibility_flags": ["nodejs_compat"],
+  "durable_objects": {
+    "bindings": [
+      {
+        "name": "ROOMS",
+        "class_name": "FixtureRoom",
+      },
+      {
+        "name": "DIRECTORY",
+        "class_name": "DirectoryDO",
+      },
+    ],
+  },
+  "migrations": [
+    {
+      "tag": "v1",
+      "new_sqlite_classes": ["FixtureRoom", "DirectoryDO"],
+    },
+  ],
+  "r2_buckets": [
+    {
+      "binding": "BACKUPS",
+      "bucket_name": "multipi-browser-tests",
+    },
+  ],
+  "assets": {
+    "binding": "ASSETS",
+    "directory": "../../dist/client",
+    "not_found_handling": "single-page-application",
+    "run_worker_first": ["/api/*"],
+  },
+  "vars": {
+    "LOCAL_DEV": "true",
+    "MODEL_ID": "fixture",
+    "ALLOWED_REPOSITORIES": "{\"org/repo\":[\"alice@example.test\",\"bob@example.test\"]}",
+  },
+}

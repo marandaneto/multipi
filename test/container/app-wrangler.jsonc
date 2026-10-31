@@ -1,0 +1,42 @@
+{
+  "name": "multipi-application-probe",
+  "main": "app-probe.ts",
+  "compatibility_date": "2026-10-28",
+  "compatibility_flags": ["nodejs_compat"],
+  "containers": [
+    {
+      "class_name": "AppProbe",
+      "scheduling_policy": "durable_object",
+      "images": {
+        "workspace": {
+          "dockerfile": "../../Dockerfile",
+          "build_context": "../..",
+        },
+      },
+    },
+  ],
+  "durable_objects": {
+    "bindings": [
+      {
+        "name": "PROBE",
+        "class_name": "AppProbe",
+      },
+    ],
+  },
+  "migrations": [
+    {
+      "tag": "v1",
+      "new_sqlite_classes": ["AppProbe"],
+    },
+  ],
+  "r2_buckets": [
+    {
+      "binding": "BACKUPS",
+      "bucket_name": "multipi-application-probe",
+    },
+  ],
+  "vars": {
+    "LOCAL_DEV": "true",
+    "MODEL_ID": "fixture",
+  },
+}

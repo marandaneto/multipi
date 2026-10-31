@@ -1,0 +1,299 @@
+:root {
+  font-family: Inter, ui-sans-serif, system-ui, sans-serif;
+  color: #202b34;
+  background: #f5f7f9;
+  font-synthesis: none;
+  line-height: 1.5;
+  color-scheme: light;
+}
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+}
+a {
+  color: #075b96;
+  overflow-wrap: anywhere;
+}
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+button {
+  border: 1px solid #aac0cf;
+  background: #fff;
+  color: #164c70;
+  border-radius: 6px;
+  padding: 0.45rem 0.8rem;
+  cursor: pointer;
+}
+button[type="submit"] {
+  background: #075b96;
+  color: white;
+}
+button:hover:enabled {
+  filter: brightness(0.93);
+}
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+button.danger {
+  color: #a62032;
+  border-color: #d59ca3;
+}
+input,
+select,
+textarea {
+  padding: 0.5rem;
+  border: 1px solid #aab8c4;
+  border-radius: 5px;
+  background: white;
+  color: inherit;
+  max-width: 100%;
+}
+input:not([type="checkbox"]),
+select,
+textarea {
+  width: 100%;
+}
+label {
+  display: block;
+  margin-bottom: 0.7rem;
+}
+label input,
+label select {
+  display: block;
+  margin-top: 0.25rem;
+}
+fieldset {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  min-width: 0;
+}
+textarea {
+  resize: vertical;
+}
+.topbar {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 1rem 2rem;
+  background: #172d3c;
+  color: #d8e5ef;
+  flex-wrap: wrap;
+}
+.topbar > a {
+  font-size: 1.45rem;
+  color: white;
+  font-weight: 750;
+  text-decoration: none;
+}
+.identity {
+  margin-left: auto;
+  font-size: 0.85rem;
+}
+main {
+  max-width: 1500px;
+  margin: auto;
+  padding: 1.5rem 2rem 4rem;
+}
+h1 {
+  margin: 0.5rem 0;
+  font-size: 1.8rem;
+}
+h2 {
+  font-size: 1.1rem;
+  margin: 0 0 0.75rem;
+}
+p {
+  margin: 0.5rem 0 1rem;
+}
+section {
+  padding: 1.1rem;
+  background: white;
+  border: 1px solid #dce3e8;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  min-width: 0;
+}
+.room-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+.room-title p {
+  overflow-wrap: anywhere;
+}
+.badge {
+  background: #ece4d5;
+  color: #654900;
+  padding: 0.3rem 0.7rem;
+  border-radius: 15px;
+  font-size: 0.85rem;
+}
+.connected {
+  background: #def1e7;
+  color: #155535;
+}
+.toolbar {
+  display: flex;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+  align-items: center;
+  margin: 0.75rem 0;
+}
+.toolbar > span,
+.muted {
+  font-size: 0.85rem;
+  color: #526574;
+}
+.layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 300px;
+  gap: 1.2rem;
+}
+.room-list {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(250px, 0.65fr);
+  gap: 1.2rem;
+}
+.cards {
+  padding: 0;
+  list-style: none;
+}
+.cards li {
+  padding: 1rem 0;
+  border-bottom: 1px solid #e2e7eb;
+}
+.cards a {
+  font-weight: 700;
+}
+.cards small {
+  overflow-wrap: anywhere;
+}
+.status {
+  display: flex;
+  gap: 0.5rem 1.5rem;
+  flex-wrap: wrap;
+  font-size: 0.85rem;
+  background: #edf2f6;
+}
+.error {
+  color: #8e192a;
+  background: #fff0f1;
+  padding: 0.7rem;
+  border-radius: 5px;
+  overflow-wrap: anywhere;
+  margin: 0.5rem 0;
+}
+.message {
+  padding: 0.8rem 1rem;
+  border-left: 3px solid #b5c8d5;
+  margin: 0.7rem 0;
+  background: #f5f8fa;
+}
+.message.user {
+  border-color: #367c9e;
+}
+.message.toolResult {
+  border-color: #c49e60;
+}
+.message-heading {
+  display: flex;
+  gap: 0.7rem;
+  align-items: baseline;
+  flex-wrap: wrap;
+  font-size: 0.85rem;
+}
+.message-heading time {
+  margin-left: auto;
+  font-size: 0.75rem;
+  color: #526574;
+}
+pre {
+  font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+  font-size: 0.85rem;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  max-height: 34rem;
+  overflow: auto;
+  tab-size: 2;
+}
+code {
+  font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+  font-size: 0.85em;
+  overflow-wrap: anywhere;
+}
+.diff {
+  padding: 1rem;
+  background: #f2f5f7;
+  max-height: 40rem;
+  white-space: pre;
+  overflow: auto;
+}
+.confirm {
+  padding: 0.75rem;
+  background: #fff8df;
+  overflow-wrap: anywhere;
+}
+.confirm input {
+  display: inline;
+  margin-right: 0.5rem;
+}
+aside ul,
+aside ol {
+  padding-left: 1.2rem;
+}
+aside li {
+  margin-bottom: 0.7rem;
+  overflow-wrap: anywhere;
+}
+aside li button {
+  margin-top: 0.4rem;
+}
+aside li p {
+  margin: 0.2rem 0;
+}
+aside code {
+  font-size: 0.7rem;
+}
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: 3px solid #2b91ce;
+  outline-offset: 3px;
+}
+@media (max-width: 850px) {
+  main {
+    padding: 1rem;
+  }
+  .topbar {
+    padding: 1rem;
+  }
+  .topbar > span:not(.identity) {
+    display: none;
+  }
+  .layout,
+  .room-list {
+    grid-template-columns: 1fr;
+  }
+  .layout aside {
+    grid-row: 1;
+  }
+  .identity {
+    max-width: 65%;
+    overflow-wrap: anywhere;
+  }
+  .room-title .badge {
+    max-width: 100%;
+  }
+}

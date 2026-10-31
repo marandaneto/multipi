@@ -1,0 +1,51 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "multipi-staging",
+  "main": "src/worker/index.ts",
+  "compatibility_date": "2026-10-28",
+  "compatibility_flags": ["nodejs_compat"],
+  "workers_dev": false,
+  "preview_urls": false,
+  "assets": {
+    "binding": "ASSETS",
+    "directory": "./dist/client",
+    "not_found_handling": "single-page-application",
+    "run_worker_first": ["/api/*"],
+  },
+  "durable_objects": {
+    "bindings": [
+      { "name": "ROOMS", "class_name": "RoomDO" },
+      { "name": "DIRECTORY", "class_name": "DirectoryDO" },
+    ],
+  },
+  "migrations": [
+    { "tag": "v1", "new_sqlite_classes": ["RoomDO", "DirectoryDO"] },
+  ],
+  "containers": [
+    {
+      "class_name": "RoomDO",
+      "scheduling_policy": "durable_object",
+      "images": {
+        "workspace": {
+          "dockerfile": "./Dockerfile",
+          "build_context": ".",
+        },
+      },
+    },
+  ],
+  "r2_buckets": [
+    { "binding": "BACKUPS", "bucket_name": "multipi-staging-backups" },
+  ],
+  "vars": {
+    "LOCAL_DEV": "false",
+    "ACCESS_TEAM_DOMAIN": "your-team.cloudflareaccess.com",
+    "ACCESS_AUDIENCE": "your-access-application-audience",
+    "APP_ORIGIN": "https://multipi.example.com",
+    "ALLOWED_REPOSITORIES": "{\"example/repo\":[\"owner@example.test\",\"operator@example.test\"]}",
+    "MODEL_ID": "@cf/zai-org/glm-4.7-flash",
+    "MAX_ROOM_TOKENS": "200000",
+    "MAX_ROOM_COST_USD": "5",
+    "WORKSPACE_INSTANCE_TYPE": "standard-1",
+  },
+  "ai": { "binding": "AI" },
+}

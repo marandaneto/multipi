@@ -1,0 +1,25 @@
+{
+  "name": "multipi-native-probe",
+  "main": "native-probe.ts",
+  "compatibility_date": "2026-10-28",
+  "compatibility_flags": ["nodejs_compat"],
+  "containers": [
+    {
+      "class_name": "Probe",
+      "scheduling_policy": "durable_object",
+      "images": {
+        "workspace": {
+          "dockerfile": "../../Dockerfile",
+          "build_context": "../..",
+        },
+      },
+    },
+  ],
+  "durable_objects": {
+    "bindings": [{ "name": "PROBE", "class_name": "Probe" }],
+  },
+  "migrations": [{ "tag": "v1", "new_sqlite_classes": ["Probe"] }],
+  "r2_buckets": [
+    { "binding": "BACKUPS", "bucket_name": "multipi-native-probe" },
+  ],
+}

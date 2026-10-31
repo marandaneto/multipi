@@ -1,0 +1,13 @@
+# Copy to .dev.vars for local development. Never commit credentials.
+# Local development uses developer@example.test unless an explicit dev-user header is supplied.
+LOCAL_DEV=true
+MODEL_ID=fixture
+ALLOWED_REPOSITORIES='{"YOUR_ORG/YOUR_REPO":["developer@example.test"]}'
+# GitHub App credentials are needed to create real repository rooms.
+# GITHUB_APP_ID=123
+# GITHUB_INSTALLATION_ID=456
+# GITHUB_PRIVATE_KEY="-----BEGIN PRIVATE KEY-----\n...PKCS8...\n-----END PRIVATE KEY-----"
+# For production, configure Access and Workers AI in wrangler.jsonc/Worker secrets.
+# ACCESS_TEAM_DOMAIN=your-team.cloudflareaccess.com
+# ACCESS_AUDIENCE=your-access-application-audience
+# APP_ORIGIN=https://multipi.example.com

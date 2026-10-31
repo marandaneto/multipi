@@ -1,0 +1,56 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "multipi-local",
+  "main": "src/worker/index.ts",
+  "compatibility_date": "2026-10-28",
+  "compatibility_flags": ["nodejs_compat"],
+  "assets": {
+    "binding": "ASSETS",
+    "directory": "./dist/client",
+    "not_found_handling": "single-page-application",
+    "run_worker_first": ["/api/*"],
+  },
+  "durable_objects": {
+    "bindings": [
+      {
+        "name": "ROOMS",
+        "class_name": "RoomDO",
+      },
+      {
+        "name": "DIRECTORY",
+        "class_name": "DirectoryDO",
+      },
+    ],
+  },
+  "migrations": [
+    {
+      "tag": "v1",
+      "new_sqlite_classes": ["RoomDO", "DirectoryDO"],
+    },
+  ],
+  "containers": [
+    {
+      "class_name": "RoomDO",
+      "scheduling_policy": "durable_object",
+      "images": {
+        "workspace": {
+          "dockerfile": "./Dockerfile",
+          "build_context": ".",
+        },
+      },
+    },
+  ],
+  "r2_buckets": [
+    {
+      "binding": "BACKUPS",
+      "bucket_name": "multipi-backups",
+    },
+  ],
+  "vars": {
+    "ALLOWED_REPOSITORIES": "{}",
+    "MAX_ROOM_TOKENS": "200000",
+    "MAX_ROOM_COST_USD": "5",
+    "LOCAL_DEV": "true",
+    "MODEL_ID": "fixture",
+  },
+}

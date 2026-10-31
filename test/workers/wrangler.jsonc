@@ -1,0 +1,39 @@
+{
+  "name": "multipi-tests",
+  "main": "application.ts",
+  "compatibility_date": "2026-10-28",
+  "compatibility_flags": ["nodejs_compat"],
+  "durable_objects": {
+    "bindings": [
+      {
+        "name": "SPIKE",
+        "class_name": "SpikeRoom",
+      },
+      {
+        "name": "ROOMS",
+        "class_name": "FixtureRoom",
+      },
+      {
+        "name": "DIRECTORY",
+        "class_name": "DirectoryDO",
+      },
+    ],
+  },
+  "migrations": [
+    {
+      "tag": "v1",
+      "new_sqlite_classes": ["SpikeRoom", "FixtureRoom", "DirectoryDO"],
+    },
+  ],
+  "r2_buckets": [
+    {
+      "binding": "BACKUPS",
+      "bucket_name": "multipi-tests",
+    },
+  ],
+  "vars": {
+    "LOCAL_DEV": "true",
+    "MODEL_ID": "fixture",
+    "ALLOWED_REPOSITORIES": "{\"org/repo\":[\"alice@example.test\",\"bob@example.test\"]}",
+  },
+}

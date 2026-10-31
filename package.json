@@ -1,0 +1,57 @@
+{
+  "name": "multipi",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "packageManager": "pnpm@12.5.1",
+  "engines": {
+    "node": ">=24"
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "build:staging": "vite build --mode staging",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run --config vitest.config.ts",
+    "test:workers": "vitest run --config vitest.workers.config.ts",
+    "test:e2e": "playwright test",
+    "test:ui": "node test/browser/client-smoke.ts",
+    "test:container": "vitest run --config vitest.container.config.ts",
+    "test:native": "bash test/container/run-native-smoke.sh",
+    "test:recovery": "bash test/container/run-app-smoke.sh",
+    "format": "prettier --write src test *.ts *.json *.jsonc index.html",
+    "format:check": "prettier --check src test *.ts *.json *.jsonc index.html",
+    "build:image": "docker build --platform linux/amd64 -t multipi-workspace:phase0 .",
+    "check": "pnpm typecheck && pnpm test && pnpm test:workers && pnpm build"
+  },
+  "dependencies": {
+    "@cloudflare/sandbox": "1.0.3",
+    "@earendil-works/chord": "1.4.0",
+    "@earendil-works/pi-ai": "1.4.0",
+    "@earendil-works/pi-durable": "1.4.0",
+    "@earendil-works/pi-telemetry": "1.4.0",
+    "@modelcontextprotocol/client": "2.3.1",
+    "agents": "0.31.0",
+    "diff": "8.0.4",
+    "jose": "6.2.13",
+    "react": "19.3.1",
+    "react-dom": "19.3.1",
+    "zod": "4.6.7"
+  },
+  "devDependencies": {
+    "@babel/core": "8.0.9",
+    "@cloudflare/vite-plugin": "1.65.0",
+    "@cloudflare/vitest-plugin": "1.4.9",
+    "@cloudflare/workers-types": "5.20261028.1",
+    "@playwright/test": "1.64.1",
+    "@types/node": "26.6.5",
+    "@types/react": "19.3.0",
+    "@types/react-dom": "19.3.0",
+    "@vitejs/plugin-react": "6.1.2",
+    "prettier": "3.9.10",
+    "typescript": "6.0.3",
+    "vite": "8.3.5",
+    "vitest": "4.1.12",
+    "wrangler": "4.154.0"
+  }
+}

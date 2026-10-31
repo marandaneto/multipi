@@ -1,0 +1,10 @@
+packages:
+  - .
+autoInstallPeers: false
+minimumReleaseAge: 0
+allowBuilds:
+  esbuild@0.28.2: true
+  workerd@1.20261019.1 || 1.20261023.1: true
+  '@google/genai': false
+  core-js-pure: false
+  protobufjs: false
